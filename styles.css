@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    --ff-primary: 'Roboto', sans-serif;
+    --hue: 191;
+    --blue-primary: hsla(var(--hue), 91%, 25%, 100%);
+    --blue-dark: hsla(var(--hue), 61%, 6%, 50%);
+    --blue-other: hsl(var(--hue), 72%, 13%);
+    --blue-dark-row: hsla(194, 64%, 6%, 0.5);
+    --blue-light-row: hsl(191, 65%, 7%);
+    --text-color: #e1e1e6;
+}
+
+body {
+    background-color: #000;
+}
+
+body * {
+    font-family: var(--ff-primary);
+    color: var(--text-color);
+    font-size: 1.6rem;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+#app {
+    max-width: 80%;
+    margin: 5rem auto;
+}
+
+.sr-only {
+    position: absolute;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8rem;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search input {
+    height: 4.8rem;
+    width: 46rem;
+    padding: 1.6rem;
+    text-align: left;
+    border: none;
+    background-color: var(--blue-dark);
+    border-radius: 5px;
+}
+
+.search button {
+    height: 4.8rem;
+    width: 17rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--blue-primary);
+    border-radius: 5px;
+    border: none;
+    padding: 12px 32px;
+    text-transform: uppercase;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.search button:hover {
+    filter: brightness(1.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+tbody {
+    height: 30rem;
+    overflow: scroll;
+}
+
+table * {
+    text-align: left;
+}
+
+tr {
+    border: 1px solid var(--blue-primary);
+}
+
+td {
+    padding: 1.5rem 4rem;
+}
+
+table th {
+    padding: 1.5rem 4rem;
+}
+
+thead tr {
+    background-color: var(--blue-other);
+}
+
+td.user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+td.user img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+table tr:nth-child(even) {
+    background-color: var(--blue-light-row);
+}
+
+tr p {
+    font-weight: bold;
+}
+
+.remove {
+    background: none;
+    border: none;
+    color: #F75A68;
+    font-weight: bold;
+}
