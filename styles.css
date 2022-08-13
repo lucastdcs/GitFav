@@ -95,21 +95,16 @@ header {
 table {
     width: 100%;
     border-collapse: collapse;
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-tbody {
-    height: 30rem;
-    overflow: scroll;
 }
 
 table * {
     text-align: left;
 }
 
-tr {
-    border: 1px solid var(--blue-primary);
+tbody tr {
+    border-bottom: 1px solid var(--blue-primary);
+    border-left: 1px solid var(--blue-primary);
+    border-right: 1px solid var(--blue-primary);
 }
 
 td {
@@ -122,6 +117,9 @@ table th {
 
 thead tr {
     background-color: var(--blue-other);
+    border-left: 1px solid var(--blue-primary);
+    border-right: 1px solid var(--blue-primary);
+    border-top: 1px solid var(--blue-primary);
 }
 
 td.user {
