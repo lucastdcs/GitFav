@@ -8,7 +8,7 @@
     font-size: 62.5%;
     --ff-primary: 'Roboto', sans-serif;
     --hue: 191;
-    --blue-primary: hsla(var(--hue), 91%, 25%, 100%);
+    --blue-primary: hsl(var(--hue), 91%, 25%, 1);
     --blue-dark: hsla(var(--hue), 61%, 6%, 50%);
     --blue-other: hsl(var(--hue), 72%, 13%);
     --blue-dark-row: hsla(194, 64%, 6%, 0.5);
@@ -82,29 +82,28 @@ header {
     background-color: var(--blue-primary);
     border-radius: 5px;
     border: none;
-    padding: 12px 32px;
+    padding: 0 1rem;
     text-transform: uppercase;
     font-weight: bold;
     justify-content: center;
+    transition: all 100ms ease-in;
 }
 
 .search button:hover {
-    filter: brightness(1.1);
+    background-color: white;
+    color: var(--blue-primary);
+}
+
+.search button:hover path {
+    fill: var(--blue-primary);
 }
 
 table {
     width: 100%;
-    border-collapse: collapse;
 }
 
 table * {
     text-align: left;
-}
-
-tbody tr {
-    border-bottom: 1px solid var(--blue-primary);
-    border-left: 1px solid var(--blue-primary);
-    border-right: 1px solid var(--blue-primary);
 }
 
 td {
@@ -115,11 +114,8 @@ table th {
     padding: 1.5rem 4rem;
 }
 
-thead tr {
-    background-color: var(--blue-other);
-    border-left: 1px solid var(--blue-primary);
-    border-right: 1px solid var(--blue-primary);
-    border-top: 1px solid var(--blue-primary);
+thead tr th {
+    background-color: #092D38;
 }
 
 td.user {
@@ -135,10 +131,6 @@ td.user img {
     object-fit: cover;
 }
 
-table tr:nth-child(even) {
-    background-color: var(--blue-light-row);
-}
-
 tr p {
     font-weight: bold;
 }
@@ -148,4 +140,61 @@ tr p {
     border: none;
     color: #F75A68;
     font-weight: bold;
+}
+
+
+/*** borders config */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--blue-primary);
+    border-radius: 12px;
+}
+
+tbody tr td {
+    border-bottom: 1px solid var(--blue-primary);
+}
+
+table tr:nth-child(even) td {
+    background-color: var(--blue-light-row);
+}
+
+table tr:nth-child(odd) td {
+    background-color: var(--blue-dark-row);
+}
+
+thead th:first-child {
+    border-top-left-radius: 12px;
+}
+
+thead th:last-child {
+    border-top-right-radius: 12px;
+}
+
+tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+
+/* Empty table */
+
+.empty-table {
+    height: 30rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--blue-dark-row);
+    gap: 7rem;
+}
+
+.empty-table h1 {
+    color: #4E5455;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 25px;
 }

@@ -10,6 +10,8 @@ export class FavoritesData {
     saveUsers() {
         localStorage.setItem('@github-favorites:', JSON.stringify(this.userEntries))
         this.clearInput()
+        document.location.reload(true);
+
 
     }
     async getUser(username) {
@@ -27,6 +29,7 @@ export class FavoritesData {
             this.userEntries = [user, ...this.userEntries]
             this.update()
             this.saveUsers()
+            this.forEmptyTbody()
 
 
         } catch (e) {
@@ -49,6 +52,7 @@ export class FavoritesView extends FavoritesData {
         this.tbody = this.root.querySelector('table tbody')
         this.update()
         this.getValue()
+        this.forEmptyTbody()
     }
     update() {
         this.removeAllRows()
@@ -65,6 +69,7 @@ export class FavoritesView extends FavoritesData {
                 const isOk = confirm('Tem certeza que deseja remover o usuário?')
                 if (isOk) {
                     this.deleteUser(user)
+                    this.forEmptyTbody()
                 }
             }
         })
@@ -75,6 +80,7 @@ export class FavoritesView extends FavoritesData {
             const { value } = this.root.querySelector('.search input')
             this.getUser(value)
         }
+
 
     }
     createRow() {
@@ -110,5 +116,24 @@ export class FavoritesView extends FavoritesData {
     }
     clearInput() {
         this.root.querySelector('.search input').value = ''
+    }
+
+    forEmptyTbody() {
+        console.log('rodei')
+        console.log(this.userEntries)
+        const empty = this.userEntries.length < 1;
+
+        const table = this.root.querySelector('table')
+        if (empty) {
+
+            table.innerHTML = `
+        <td class="empty-table" colspan="4">
+                        <img src="assets/svgs/Estrela.svg" alt="Estrela">
+                        <h1>Nenhum favorito ainda!</h1>
+        </td>
+        `
+        }
+
+
     }
 }
